@@ -64,6 +64,8 @@ export default defineConfig({
       md.use(vitepressDemoPlugin, {
         demoDir: path.resolve(__dirname, '../examples')
       })
+
+      md.use(function (mi) {})
     }
   }
 })
