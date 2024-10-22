@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../node_modules/ultra-ui/directives/ripple/style.js", "../../../node_modules/ultra-ui/components/icon/style.js"],
-  "sourcesContent": ["import './style.css';\n", "import './style.css';\n"],
-  "mappings": ";AAAA,OAAO;;;ACAP,OAAO;",
-  "names": []
-}
