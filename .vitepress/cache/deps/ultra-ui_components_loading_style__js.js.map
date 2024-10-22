@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../node_modules/ultra-ui/components/loading/style.js"],
+  "sourcesContent": ["import '../../styles/anime/fade.css';\nimport './style.css';\n"],
+  "mappings": ";AAAA,OAAO;AACP,OAAO;",
+  "names": []
+}

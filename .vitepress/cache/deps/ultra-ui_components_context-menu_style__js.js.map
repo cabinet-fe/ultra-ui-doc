@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../node_modules/ultra-ui/components/context-menu/style.js"],
+  "sourcesContent": ["import '../../directives/ripple/style';\nimport '../icon/style';\nimport '../../styles/anime/zoom-in.css';\nimport './style.css';\n"],
+  "mappings": ";;;AAEA,OAAO;AACP,OAAO;",
+  "names": []
+}
