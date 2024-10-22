@@ -8,13 +8,41 @@ export default defineConfig({
   description: '一个优雅的，高性能的，高开发体验的组件库',
   themeConfig: {
     logo: '/logo.png',
+
+    outline: {
+      label: '当前页面'
+    },
+
     search: {
-      provider: 'local'
+      provider: 'local',
+      options: {
+        translations: {
+          button: {
+            buttonText: '搜索',
+            buttonAriaLabel: '搜索'
+          },
+          modal: {
+            noResultsText: '找不到该结果：',
+            resetButtonTitle: '清除查询',
+            footer: {
+              navigateText: '切换',
+              closeText: '关闭',
+              selectText: '选择'
+            },
+            displayDetails: '显示列表详情'
+          }
+        }
+      }
     },
 
     footer: {
       message: 'MIT Licensed',
       copyright: '© 2022-PRESENT 前端小分队'
+    },
+
+    docFooter: {
+      prev: '上一篇',
+      next: '下一篇'
     },
 
     // https://vitepress.dev/reference/default-theme-config
