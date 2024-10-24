@@ -9,5 +9,13 @@ declare module 'vue' {
   export interface GlobalComponents {
     UButton: typeof import('ultra-ui')['UButton']
     UButtonGroup: typeof import('ultra-ui')['UButtonGroup']
+    UCard: typeof import('ultra-ui')['UCard']
+    UCardAction: typeof import('ultra-ui')['UCardAction']
+    UCardContent: typeof import('ultra-ui')['UCardContent']
+    UCardHeader: typeof import('ultra-ui')['UCardHeader']
+    UCheckbox: typeof import('ultra-ui')['UCheckbox']
+    UNumberInput: typeof import('ultra-ui')['UNumberInput']
+    UTable: typeof import('ultra-ui')['UTable']
+    UTag: typeof import('ultra-ui')['UTag']
   }
 }

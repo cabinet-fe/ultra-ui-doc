@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
-import { vitepressDemoPlugin } from 'vitepress-demo-plugin'
+import { DemoContainer } from 'vitepress-demo-container/plugins'
 import path from 'path'
+import { UltraUIResolver } from 'vite-helper'
+import Components from 'unplugin-vue-components/vite'
+import vueJsx from '@vitejs/plugin-vue-jsx' // TSX和JSX支持
+import { existModule } from 'cat-kit/be'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -51,15 +55,33 @@ export default defineConfig({
       { text: '组件', link: '/components/basic/button' }
     ],
 
-    sidebar: [
-      {
-        text: '指南',
-        items: [
-          { text: '快速开始', link: '/guide/' },
-          { text: '主题', link: '/guide/theme' }
-        ]
-      }
-    ],
+    sidebar: {
+      '/guide/': [
+        {
+          text: '指南',
+
+          items: [
+            { text: '快速开始', link: '/guide/' },
+            { text: '主题', link: '/guide/theme' }
+          ]
+        }
+      ],
+      '/components/': [
+        {
+          text: '基础组件',
+          base: '/components/basic/',
+          items: [
+            { text: 'Button 按钮', link: 'button' },
+            { text: 'Card 卡片', link: 'card' }
+          ]
+        },
+        {
+          text: '数据组件',
+          base: '/components/data/',
+          items: [{ text: 'Table 表格', link: 'table' }]
+        }
+      ]
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/cabinet-fe/ultra-ui' }
@@ -89,11 +111,22 @@ export default defineConfig({
 
   markdown: {
     config(md) {
-      md.use(vitepressDemoPlugin, {
-        demoDir: path.resolve(__dirname, '../examples')
+      md.use(DemoContainer, {
+        demoRootDir: path.resolve(__dirname, '../examples')
       })
-
-      md.use(function (mi) {})
     }
+  },
+
+  vite: {
+    resolve: {
+      extensions: ['.js', '.ts', '.tsx']
+    },
+
+    plugins: [
+      vueJsx(),
+      Components({
+        resolvers: [UltraUIResolver]
+      })
+    ]
   }
 })

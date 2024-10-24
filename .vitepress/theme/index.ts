@@ -4,13 +4,13 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import 'ultra-ui/styles/theme.css'
+import 'ultra-ui/styles/anime/fade.css'
 import 'ultra-ui/styles/index.js'
-import { vLoading } from 'ultra-ui/components/loading/directive.js'
-import 'ultra-ui/components/loading/style.css'
 import 'ultra-ui/components/context-menu/style.js'
-import * as UltraUI from 'ultra-ui/components/index.js'
-import 'ultra-ui/components/button/style.js'
-import 'ultra-ui/components/loading/style.js'
+import 'ultra-ui/components/message/style.js'
+import 'ultra-ui/components/message-confirm/style.js'
+
+import 'vitepress-demo-container/components/style.css'
 
 export default {
   extends: DefaultTheme,
@@ -20,15 +20,13 @@ export default {
     })
   },
   enhanceApp({ app, router, siteData }) {
-    // ...
-    Object.keys(UltraUI)
-      .filter(key => key.startsWith('U'))
-      .forEach(key => {
-        const component = UltraUI[key]
-
-        app.component(key, component)
-      })
-
-    app.directive('loading', vLoading)
+    // // ...
+    // Object.keys(UltraUI)
+    //   .filter(key => key.startsWith('U'))
+    //   .forEach(key => {
+    //     const component = UltraUI[key]
+    //     app.component(key, component)
+    //   })
+    // app.directive('loading', vLoading)
   }
 } satisfies Theme
