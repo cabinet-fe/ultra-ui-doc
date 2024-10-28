@@ -3,14 +3,8 @@ import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
-import 'ultra-ui/styles/theme.css'
-import 'ultra-ui/styles/anime/fade.css'
-import 'ultra-ui/styles/index.js'
-import 'ultra-ui/components/context-menu/style.js'
-import 'ultra-ui/components/message/style.js'
-import 'ultra-ui/components/message-confirm/style.js'
-
-import 'vitepress-demo-container/components/style.css'
+import { VDemo } from 'vitepress-demo-container/components'
+import { UltraUI } from 'ultra-ui/install'
 
 export default {
   extends: DefaultTheme,
@@ -20,6 +14,8 @@ export default {
     })
   },
   enhanceApp({ app, router, siteData }) {
+    app.use(UltraUI)
+    app.component('VDemo', VDemo)
     // // ...
     // Object.keys(UltraUI)
     //   .filter(key => key.startsWith('U'))

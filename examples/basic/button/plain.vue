@@ -1,5 +1,5 @@
 <template>
-  <u-button plain>默认</u-button>
+  <u-button>默认</u-button>
   <u-button plain type="primary">主题</u-button>
   <u-button plain type="success">成功</u-button>
   <u-button plain type="warning">警告</u-button>
