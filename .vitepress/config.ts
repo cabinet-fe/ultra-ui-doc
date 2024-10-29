@@ -115,15 +115,8 @@ export default defineConfig({
   },
 
   vite: {
-    resolve: {
-      extensions: ['.js', '.ts', '.tsx']
-    },
-
-    plugins: [
-      // Components({
-      //   resolvers: [UltraUIResolver],
-      //   dts: true,
-      // })
-    ]
+    ssr: {
+      noExternal: ['ultra-ui', 'vitepress']
+    }
   }
 })
