@@ -1,6 +1,56 @@
 import { defineConfig } from 'vitepress'
 import { DemoContainer } from 'vitepress-demo-container/plugins'
 import path from 'path'
+import fs from 'fs/promises'
+import { fileURLToPath } from 'url'
+import { readFileLine } from 'cat-kit/be'
+import UnoCSS from 'unocss/vite'
+
+// 获取es模块中的__dirname
+const __dirname = fileURLToPath(path.dirname(import.meta.url))
+
+const componentsTypeMap = {
+  basic: '基础组件',
+  data: '数据组件',
+  form: '表单组件',
+  layout: '布局组件'
+}
+
+const getComponentSidebar = async (type: keyof typeof componentsTypeMap) => {
+  const typePath = path.resolve(__dirname, '../components', type)
+  const mds = await fs.readdir(typePath)
+  const items = await Promise.all(
+    mds.map(async md => {
+      const lines = await readFileLine(
+        path.join(typePath, md),
+        (i, str, content) => {
+          if (content.length) return false
+          str = str.trim()
+          if (str && str.startsWith('# ')) {
+            return true
+          }
+        }
+      )
+
+      const line = lines[0]!
+
+      return {
+        text: line.replace('#', '').trim(),
+        link: md.slice(0, -3)
+      }
+    })
+  )
+
+  return {
+    text: componentsTypeMap[type],
+    base: `/components/${type}/`,
+    items
+  }
+}
+
+const basicSidebar = await getComponentSidebar('basic')
+const dataSidebar = await getComponentSidebar('data')
+const formSidebar = await getComponentSidebar('form')
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -62,22 +112,7 @@ export default defineConfig({
           ]
         }
       ],
-      '/components/': [
-        {
-          text: '基础组件',
-          base: '/components/basic/',
-          items: [
-            { text: 'Button 按钮', link: 'button' },
-            { text: 'Card 卡片', link: 'card' },
-            { text: 'Action 操作按钮', link: 'action' }
-          ]
-        },
-        {
-          text: '数据组件',
-          base: '/components/data/',
-          items: [{ text: 'Table 表格', link: 'table' }]
-        }
-      ]
+      '/components/': [basicSidebar, dataSidebar, formSidebar]
     },
 
     socialLinks: [
@@ -116,7 +151,8 @@ export default defineConfig({
 
   vite: {
     ssr: {
-      noExternal: ['ultra-ui', 'vitepress']
-    }
+      noExternal: ['ultra-ui']
+    },
+    plugins: [UnoCSS()]
   }
 })

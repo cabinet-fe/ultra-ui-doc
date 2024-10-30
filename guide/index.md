@@ -1,39 +1,83 @@
-# 指南
+# 快速开始
+
+ultra-ui 使用 cat-kit 库进行辅助开发，并且在构建时将 cat-kit 移除，意味着你需要在你的项目中安装 cat-kit。
+
+cat-kit 是一个辅助开发库，提供了一些实用的功能，[点击](https://cabinet-fe.github.io/cat-kit/)查看文档。
 
 ## 安装
 
-```zsh
-bun add ultra-ui
+::: code-group
 
+```sh [bun]
+bun add ultra-ui cat-kit
+```
+
+```sh [pnpm]
+pnpm add ultra-ui cat-kit
+```
+
+:::
+
+## 全局引入
+
+使用这个组件的最简单的方式是导入 ultra-ui 的安装插件进行全局引入。
+
+```ts
+// 你的入口文件main.ts
+
+import { createApp, h } from 'vue'
+import App from './App.vue'
+import { UltraUI } from 'ultra-ui/install'
+import { loadTheme } from 'ultra-ui'
+
+// 如果你在ssr环境中使用，请在onMounted中调用loadTheme
+loadTheme()
+
+const app = createApp({
+  render: () => h(App)
+})
+
+app.use(UltraUI)
+```
+
+## 按需引入 (推荐)
+
+1. 首先安装 vite 插件
+
+::: code-group
+
+```sh [bun]
 bun add unplugin-vue-components vite-helper -D
 ```
 
-## 使用
+```sh [pnpm]
+pnpm add unplugin-vue-components vite-helper -D
+```
+
+:::
+
+2. 在入口文件中引入主题和基础样式
 
 ```ts
-// 在入口文件中引入一些通用的样式
-import 'ultra-ui/styles/index'
-import 'ultra-ui/styles/theme.css'
-import 'ultra-ui/styles/anime/fade.css'
-import 'ultra-ui/components/context-menu/style'
-import 'ultra-ui/components/message/style'
-import 'ultra-ui/components/message-confirm/style'
+// main.ts
+import { loadTheme } from 'ultra-ui'
+import 'ultra-ui/styles'
+
+loadTheme()
 ```
+
+3. 在 vite 配置中引入插件
 
 ```ts
 //vite.config.ts
 import Components from 'unplugin-vue-components/vite'
-import {
-  defineServerProxy,
-  UltraUIResolver,
-  MetaComponentsResolver
-} from 'vite-helper'
+import { defineServerProxy, UltraUIResolver } from 'vite-helper'
 
 export default defineConfig({
   plugins: [
     Components({
-      resolvers: [UltraUIResolver, MetaComponentsResolver],
-      dts: '../components.d.ts'
+      resolvers: [UltraUIResolver],
+      dts: true
     })
   ],
 

@@ -141,3 +141,7 @@
   --bg-color-top: #161618 !important;
   --bg-color-middle-alpha: #161618cc !important;
 }
+
+li {
+  list-style: unset;
+}
