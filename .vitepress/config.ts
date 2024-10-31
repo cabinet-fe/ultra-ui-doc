@@ -13,7 +13,9 @@ const componentsTypeMap = {
   basic: '基础组件',
   data: '数据组件',
   form: '表单组件',
-  layout: '布局组件'
+  layout: '布局组件',
+  feedback: '反馈组件',
+  other: '其他组件'
 }
 
 const getComponentSidebar = async (type: keyof typeof componentsTypeMap) => {
@@ -51,6 +53,9 @@ const getComponentSidebar = async (type: keyof typeof componentsTypeMap) => {
 const basicSidebar = await getComponentSidebar('basic')
 const dataSidebar = await getComponentSidebar('data')
 const formSidebar = await getComponentSidebar('form')
+const layoutSidebar = await getComponentSidebar('layout')
+const feedbackSidebar = await getComponentSidebar('feedback')
+const otherSidebar = await getComponentSidebar('other')
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -112,7 +117,14 @@ export default defineConfig({
           ]
         }
       ],
-      '/components/': [basicSidebar, dataSidebar, formSidebar]
+      '/components/': [
+        basicSidebar,
+        dataSidebar,
+        formSidebar,
+        layoutSidebar,
+        feedbackSidebar,
+        otherSidebar
+      ]
     },
 
     socialLinks: [
@@ -152,6 +164,9 @@ export default defineConfig({
   vite: {
     ssr: {
       noExternal: ['ultra-ui']
+    },
+    server: {
+      host: true
     },
     plugins: [UnoCSS()]
   }

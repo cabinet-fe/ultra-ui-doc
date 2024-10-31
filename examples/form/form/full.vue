@@ -38,14 +38,21 @@
       />
       <u-date-picker field="contractDate" label="合同日期" />
     </u-form>
+    <div>操作记录：</div>
+    <u-scroll class="max-h-[200px]">
+      <div v-for="item in changedList" :key="item.field">
+        在 {{ item.time }} 将 {{ item.field }}值改为{{ item.val }}
+      </div>
+    </u-scroll>
 
-    <div class="text-right pt-4">
+    <div class="flex justify-end gap-2 mt-4">
       <u-checkbox v-model="disabled"> 禁用 </u-checkbox>
       <u-checkbox v-model="readonly"> 只读 </u-checkbox>
 
       <u-button @click="model.resetData()" text type="primary">
         重置数据
       </u-button>
+      <u-button @click="handleMockData" type="primary"> 模拟回显 </u-button>
       <u-button @click="model.validate()" type="success">校验</u-button>
     </div>
   </div>
@@ -89,10 +96,11 @@ const model = new FormModel({
     required: true,
     validator(value) {
       if (!value) return ''
-      if (/^1[1-9]{10}$/.test(value)) return ''
+      if (/^1[0-9]{10}$/.test(value)) return ''
       return '你得输入一个手机号'
     }
   },
+  id: { required: true },
   email: {
     match: [
       /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/,
@@ -103,4 +111,34 @@ const model = new FormModel({
   interest: { required: true },
   contractDate: { required: true, value: date().format() }
 })
+
+const changedList = shallowRef<
+  Array<{ field: string; val: any; time: string }>
+>([])
+
+model.onChange((field, value) => {
+  changedList.value = [
+    { field, val: value, time: date().format('HH:mm:ss') },
+    ...changedList.value
+  ]
+})
+
+function handleMockData() {
+  model.setData({
+    name: '张三',
+    age: 24,
+    married: true,
+    mate: {
+      name: '李四',
+      age: 23
+    },
+    sex: 'male',
+    phone: '13800138000',
+    email: 'zhangsan@example.com',
+    bank: '工商银行',
+    interest: ['电影', '健身'],
+    id: '123456789012345678',
+    contractDate: date().format()
+  })
+}
 </script>

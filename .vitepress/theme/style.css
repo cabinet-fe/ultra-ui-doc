@@ -145,3 +145,19 @@
 li {
   list-style: unset;
 }
+
+/* 表格样式修正 */
+.u-table__cell {
+  border: none !important;
+}
+
+.u-table__wrap {
+  margin: 0 !important;
+  display: table !important;
+  border-collapse: separate !important;
+}
+
+.vp-doc table {
+  width: 100%;
+  display: table;
+}

@@ -1,10 +1,34 @@
 <template>
-  <u-table :data="data" :columns="columns"> </u-table>
+  <u-table
+    :data="data"
+    :columns="columns"
+    :checkable="checkable"
+    :selectable="selectable"
+    v-model:checked="checked"
+    row-key="studentId"
+    v-model:selected="selected"
+  >
+  </u-table>
+  <div>
+    <u-checkbox
+      v-model="selectable"
+      @update:model-value="$event && (checkable = false)"
+      >单选</u-checkbox
+    >
+    <u-checkbox
+      v-model="checkable"
+      @update:model-value="$event && (selectable = false)"
+      >多选</u-checkbox
+    >
+  </div>
+  <div>单选数据: {{ selected }}</div>
+  <div>多选数据:{{ checked }}</div>
 </template>
 
 <script lang="ts" setup>
 import { date } from 'cat-kit/fe'
 import { defineTableColumns } from 'ultra-ui'
+import { ref, shallowRef } from 'vue'
 
 const columns = defineTableColumns(
   [
@@ -19,6 +43,12 @@ const columns = defineTableColumns(
   ],
   { align: 'center' }
 )
+
+const selectable = ref(true)
+const checkable = ref(false)
+
+const checked = shallowRef([])
+const selected = shallowRef()
 
 const data = Array.from({ length: 10 }).map((_, index) => ({
   studentId: index + 1,

@@ -8,14 +8,26 @@ import { defineTableColumns } from 'ultra-ui'
 
 const columns = defineTableColumns(
   [
-    { name: '学生ID', key: 'studentId' },
-    { name: '姓名', key: 'name', fixed: 'left' },
-    { name: '性别', key: 'gender' },
-    { name: '出生日期', key: 'birthDate' },
-    { name: '年级', key: 'grade' },
-    { name: '班级', key: 'class' },
-    { name: '入学日期', key: 'enrollmentDate', fixed: 'right' },
-    { name: '家庭住址', key: 'address' }
+    { name: '学生ID', key: 'studentId', fixed: 'left' },
+    {
+      name: '基础信息',
+      key: 'base',
+      children: [
+        { name: '姓名', key: 'name', fixed: 'left' },
+        { name: '性别', key: 'gender' },
+        { name: '出生日期', key: 'birthDate' },
+        { name: '家庭住址', key: 'address' }
+      ]
+    },
+    {
+      name: '入学信息',
+      key: 'enrollment',
+      children: [
+        { name: '年级', key: 'grade' },
+        { name: '班级', key: 'class' },
+        { name: '入学日期', key: 'enrollmentDate' }
+      ]
+    }
   ],
   { align: 'center' }
 )

@@ -18,8 +18,8 @@
     "typescript": "^5.6.3"
   },
   "scripts": {
-    "docs:dev": "bunx --bun vitepress dev",
-    "docs:build": "bunx --bun vitepress build",
+    "docs:dev": " vitepress dev",
+    "docs:build": " vitepress build",
     "docs:preview": "bunx --bun vitepress preview",
     "update": "bun update"
   }

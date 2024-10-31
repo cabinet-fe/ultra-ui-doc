@@ -1,5 +1,5 @@
 <template>
-  <u-table :data="data" :columns="columns"> </u-table>
+  <u-table :data="data" :columns="columns" show-index> </u-table>
 </template>
 
 <script lang="ts" setup>
@@ -8,7 +8,6 @@ import { defineTableColumns } from 'ultra-ui'
 
 const columns = defineTableColumns(
   [
-    { name: '学生ID', key: 'studentId' },
     { name: '姓名', key: 'name', fixed: 'left' },
     { name: '性别', key: 'gender' },
     { name: '出生日期', key: 'birthDate' },
@@ -21,7 +20,6 @@ const columns = defineTableColumns(
 )
 
 const data = Array.from({ length: 10 }).map((_, index) => ({
-  studentId: index + 1,
   name: `学生${index + 1}`,
   gender: index % 2 === 0 ? '男' : '女',
   birthDate: date('1995-01-01')

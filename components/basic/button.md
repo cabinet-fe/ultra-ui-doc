@@ -1,37 +1,55 @@
 # Button 按钮
 
-::: demo 类别展示
+## 类别
+
+::: demo
 render(basic/button/type.vue)
 :::
 
-::: demo 尺寸
+## 尺寸
+
+::: demo
 render(basic/button/size.vue)
 :::
 
-::: demo 圆形按钮
+## 圆形按钮
+
+::: demo
 render(basic/button/circle.vue)
 :::
 
-::: demo 禁用
+## 禁用
+
+::: demo
 render(basic/button/disabled.vue)
 :::
 
-::: demo 加载
+## 加载
+
+::: demo
 render(basic/button/loading.vue)
 :::
 
-::: demo 朴素模式
+## 朴素模式
+
+::: demo
 render(basic/button/plain.vue)
 :::
 
-::: demo 朴素模式和禁用
+## 朴素模式和禁用
+
+::: demo
 render(basic/button/plain-and-disabled.vue)
 :::
 
-::: demo 文本模式
+## 文本模式
+
+::: demo
 render(basic/button/text.vue)
 :::
 
-::: demo 按钮组
+## 按钮组
+
+::: demo
 render(basic/button/group.vue)
 :::
