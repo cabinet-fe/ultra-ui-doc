@@ -172,5 +172,6 @@ export default defineConfig({
     plugins: [UnoCSS()]
   },
 
-  outDir: './docs'
+  outDir: './docs',
+  base: '/ultra-ui-doc/'
 })
