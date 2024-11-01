@@ -17,7 +17,7 @@
   </div>
 
   <u-tabs
-    v-model:items="items"
+    :items="items"
     v-model="active"
     :position="config.position"
     :editable="config.editable"
