@@ -60,8 +60,7 @@ pnpm add unplugin-vue-components vite-helper -D
 
 ```ts
 // main.ts
-import { loadTheme } from 'ultra-ui'
-import 'ultra-ui/styles'
+import { loadTheme } from 'ultra-ui/styles'
 
 loadTheme()
 ```
