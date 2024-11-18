@@ -1,7 +1,8 @@
 <template>
   <div>
     查看页面效果
-    <u-watermark text="UltraUI" append-to-body :route="-30"> </u-watermark>
+
+    <u-watermark text="UltraUI" :route="-30" append-to-body> </u-watermark>
   </div>
 </template>
 
