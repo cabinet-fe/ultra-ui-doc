@@ -103,7 +103,14 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '指南', link: '/guide/' },
-      { text: '组件', link: '/components/basic/button' }
+      {
+        text: 'UI库',
+        // link: '/components/basic/button',
+        items: [
+          { text: '组件', link: '/components/basic/button' },
+          { text: '组合式方法', link: '/compositions/use-config' }
+        ]
+      }
     ],
 
     sidebar: {
@@ -162,6 +169,10 @@ export default defineConfig({
   },
 
   vite: {
+    resolve: {
+      alias: []
+    },
+
     ssr: {
       noExternal: ['ultra-ui']
     },
