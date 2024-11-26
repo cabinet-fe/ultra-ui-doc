@@ -52,6 +52,10 @@ render(data/table/multi-level-header.vue)
 render(data/table/slot.vue)
 :::
 
+## 插槽穿透
+
+插槽穿透对于基于 table 二次封装的上层组件很有用。
+
 ## 多选和单选
 
 记得指定 `row-key` 来标识唯一性。
