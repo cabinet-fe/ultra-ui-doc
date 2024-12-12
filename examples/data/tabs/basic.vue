@@ -46,7 +46,7 @@ const CountComponent = defineComponent({
   setup() {
     const count = ref(0)
     return () =>
-      h(UButton, { onClick: () => count.value++ }, `点了${count.value}次`)
+      h(UButton, { onClick: () => count.value++ }, () => `点了${count.value}次`)
   }
 })
 

@@ -1,7 +1,21 @@
 <template>
   <div>
+    <div class="mb-2">
+      <u-action-group :max="max">
+        <u-action
+          v-for="button of buttons"
+          @run="message.success(`点击了${button}按钮`)"
+        >
+          {{ button }}
+        </u-action>
+        <u-action need-confirm type="danger" @run="message.success('已删除')">
+          删除
+        </u-action>
+      </u-action-group>
+    </div>
+
     <div>
-      <span>最大显示按钮数: </span>
+      <span class="pl-3">最大显示按钮数: </span>
       <u-number-input
         style="width: 100px"
         :step="1"
@@ -10,15 +24,11 @@
         :clearable="false"
       />
     </div>
-
-    <u-action-group :max="max">
-      <u-action v-for="button of buttons">{{ button }}</u-action>
-      <u-action need-confirm type="danger">删除</u-action>
-    </u-action-group>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { message } from 'ultra-ui'
 import { ref } from 'vue'
 
 const buttons = ['查看', '编辑', '审批']

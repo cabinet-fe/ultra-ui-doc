@@ -161,3 +161,14 @@ li {
   width: 100%;
   display: table;
 }
+
+.u-tabs__header {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.u-tabs__header-item {
+  margin: 0 !important;
+  list-style: none !important;
+}

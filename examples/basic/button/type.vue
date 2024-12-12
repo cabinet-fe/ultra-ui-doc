@@ -1,7 +1,9 @@
 <template>
-  <u-button :type="button.type" v-for="button of buttons">
-    {{ button.text }}
-  </u-button>
+  <div class="flex flex-wrap gap-2">
+    <u-button :type="button.type" v-for="button of buttons">
+      {{ button.text }}
+    </u-button>
+  </div>
 </template>
 
 <script lang="ts" setup>
