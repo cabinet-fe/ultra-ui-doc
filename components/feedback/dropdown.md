@@ -4,17 +4,23 @@
 
 ## 基础用法
 
+基础的下拉框用法，支持 hover 和 click 两种触发方式，可以包含任意内容。
+
 ::: demo
 render(feedback/dropdown/basic.vue)
 :::
 
 ## 进阶用法
 
+展示如何通过编程方式控制下拉框的显示位置，支持虚拟触发元素，适用于更复杂的交互场景。
+
 ::: demo
 render(feedback/dropdown/virtual.vue)
 :::
 
 ## 自适应宽度
+
+下拉框可以根据内容自动调整宽度，也可以通过 width 和 minWidth 属性来控制宽度范围。
 
 ::: demo
 render(feedback/dropdown/width.vue)
