@@ -7,14 +7,12 @@
 </template>
 
 <script lang="ts" setup>
-import { loadTheme, theme } from 'ultra-ui/styles/theme'
+import { currentTheme } from 'ultra-ui/styles/theme'
 import { shallowRef } from 'vue'
 import { WebCache } from 'cat-kit/fe'
 import { message } from 'ultra-ui'
 
-const color = shallowRef(theme.value.color.primary)
-
-const defaultTheme = JSON.parse(JSON.stringify(theme.value))
+const color = shallowRef(currentTheme.value!.theme.color.primary)
 
 function isValidColorString(value: string) {
   return /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/.test(value)
@@ -24,11 +22,10 @@ function setPrimaryColor() {
     return message.error('请输入正确的颜色值')
   }
 
-  theme.value.color.primary = color.value
-  // 持久化保存
-  WebCache.local.set('theme', theme.value)
+  currentTheme.value!.theme.color.primary = color.value
 
-  loadTheme()
+  // 持久化保存
+  WebCache.local.set('theme', currentTheme.value!.theme)
 }
 
 function resetTheme() {

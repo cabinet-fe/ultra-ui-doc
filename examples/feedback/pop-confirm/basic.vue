@@ -1,6 +1,6 @@
 <template>
   <u-pop-confirm
-    title="Are you sure to delete this?"
+    title="确定要删除吗？"
     @confirm="confirmEvent"
     @cancel="cancelEvent"
     alignment="start"
@@ -13,9 +13,9 @@
 
 <script setup lang="ts">
 const confirmEvent = () => {
-  console.log("confirm")
+  console.log('confirm')
 }
 const cancelEvent = () => {
-  console.log("cancel")
+  console.log('cancel')
 }
 </script>

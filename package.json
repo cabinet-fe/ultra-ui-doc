@@ -7,10 +7,10 @@
     "cat-kit": "^3.7.10",
     "unocss": "^0.63.6",
     "vitepress": "^1.5.0",
-    "vitepress-demo-container": "^1.0.10"
+    "vitepress-demo-container": "^1.1.0"
   },
   "dependencies": {
-    "ultra-ui": "^0.2.26",
+    "ultra-ui": "^0.2.31",
     "vue": "^3.5.13",
     "icon-ultra": "^3.0.15"
   },
