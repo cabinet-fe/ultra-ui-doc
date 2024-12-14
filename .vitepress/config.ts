@@ -5,6 +5,7 @@ import fs from 'fs/promises'
 import { fileURLToPath } from 'url'
 import { readFileLine } from 'cat-kit/be'
 import UnoCSS from 'unocss/vite'
+import { version } from 'ultra-ui/version'
 
 // 获取es模块中的__dirname
 const __dirname = fileURLToPath(path.dirname(import.meta.url))
@@ -102,8 +103,8 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'MIT Licensed',
-      copyright: '© 2022-PRESENT 前端小分队'
+      message: '基于 MIT 协议',
+      copyright: '版权所有 © 2024-现在 苏州元智慧'
     },
 
     docFooter: {
@@ -113,9 +114,10 @@ export default defineConfig({
 
     // https://vitepress.dev/reference/default-theme-config
     nav: [
+      { text: `v${version}`, link: '/' },
       { text: '指南', link: '/guide/' },
       {
-        text: 'UI库',
+        text: '组件',
         // link: '/components/basic/button',
         items: [
           { text: '组件', link: '/components/basic/button' },
