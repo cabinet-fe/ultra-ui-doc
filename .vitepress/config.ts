@@ -61,6 +61,17 @@ const otherSidebar = await getComponentSidebar('other')
 export default defineConfig({
   title: 'Ultra UI',
   description: '一个优雅的，高性能的，高开发体验的组件库',
+  head: [
+    [
+      'link',
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/ultra-ui-doc/logo.png'
+      }
+    ]
+  ],
   themeConfig: {
     logo: '/logo.png',
 

@@ -6,7 +6,7 @@
       :max="100"
       style="width: 100px"
       :min="0"
-      :step="10"
+      :step="8"
     />
   </div>
   <div>
@@ -27,27 +27,21 @@
   </div>
 
   <u-card class="mb-4">
-    <u-card-header>
-      <u-card-title>条形进度条</u-card-title>
-    </u-card-header>
+    <u-card-header> 条形进度条 </u-card-header>
     <u-card-content>
       <u-progress v-bind="config" />
     </u-card-content>
   </u-card>
 
   <u-card class="mb-4">
-    <u-card-header>
-      <u-card-title>圆形进度条</u-card-title>
-    </u-card-header>
+    <u-card-header> 圆形进度条 </u-card-header>
     <u-card-content>
       <u-progress v-bind="config" circle />
     </u-card-content>
   </u-card>
 
   <u-card>
-    <u-card-header>
-      <u-card-title>动态状态</u-card-title>
-    </u-card-header>
+    <u-card-header> 动态状态 </u-card-header>
     <u-card-content>
       <u-progress :percentage="config.percentage" :type="getType">
         <template #default="{ percentage }">
@@ -57,7 +51,9 @@
           <span v-else-if="percentage < 100">
             内存严重不足 <u-icon><WarnTriangleFilled /></u-icon>
           </span>
-          <span v-else>该换电脑了</span>
+          <span v-else
+            >该换电脑了 <u-icon><WarnTriangleFilled /></u-icon
+          ></span>
         </template>
       </u-progress>
       <u-progress
@@ -76,6 +72,7 @@
 <script lang="ts" setup>
 import type { ColorType } from 'ultra-ui/types/component-common'
 import { shallowReactive } from 'vue'
+import { WarnTriangleFilled } from 'icon-ultra'
 
 const types = ['primary', 'info', 'success', 'warning', 'danger'].map(t => {
   return {

@@ -162,13 +162,13 @@ li {
   display: table;
 }
 
-.u-tabs__header {
+ul[class^='u-'] {
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
 }
 
-.u-tabs__header-item {
+li[class^='u-'] {
   margin: 0 !important;
   list-style: none !important;
 }

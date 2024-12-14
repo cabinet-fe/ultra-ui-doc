@@ -4,17 +4,23 @@
 
 ## 基本用法
 
+展示了多选下拉选择器的基础功能，包括选项的多选、清空等操作。
+
 :::demo
 render(form/multi-select/basic.vue)
 :::
 
 ## 最大可选数量
 
+通过设置 `max` 属性来限制最多可选择的选项数量，达到限制后其他选项将被禁用。
+
 :::demo
 render(form/multi-select/max.vue)
 :::
 
 ## 最大展示数量
+
+使用 `visibility-limit` 属性控制选中项的最大显示数量，超出限制时将以 "+N" 的形式显示剩余数量。
 
 :::demo
 render(form/multi-select/visibilityLimit.vue)

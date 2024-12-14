@@ -4,17 +4,23 @@
 
 ## 基本用法
 
+展示了树形选择器的基础功能,包括节点的多选、展开/收起等操作。
+
 :::demo
 render(form/multi-tree-select/basic.vue)
 :::
 
 ## 禁止某节点
 
+通过配置可以禁用特定节点,被禁用的节点无法选中。
+
 :::demo
 render(form/multi-tree-select/disabled-node.vue)
 :::
 
 ## 自定义节点内容
+
+支持自定义节点的渲染内容,可以根据需要添加图标或其他元素。
 
 :::demo
 render(form/multi-tree-select/custom.vue)

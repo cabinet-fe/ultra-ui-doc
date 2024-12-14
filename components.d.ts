@@ -19,5 +19,6 @@ declare module 'vue' {
     UNumberInput: typeof import('ultra-ui')['UNumberInput']
     UTable: typeof import('ultra-ui')['UTable']
     UTag: typeof import('ultra-ui')['UTag']
+    UPaginator: typeof import('ultra-ui')['UPaginator']
   }
 }
