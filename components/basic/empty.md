@@ -7,5 +7,5 @@
 通过`text`属性设置文字，`size`属性设置大小。
 
 ::: demo
-render(basic/empty/basic.vue)
+render(components/basic/empty/basic.vue)
 :::

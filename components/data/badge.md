@@ -9,7 +9,7 @@
 可以换个其他的颜色。
 
 ::: demo
-render(data/badge/basic.vue)
+render(components/data/badge/basic.vue)
 :::
 
 ## 点状徽章
@@ -17,5 +17,5 @@ render(data/badge/basic.vue)
 点状徽章。
 
 ::: demo
-render(data/badge/dot.vue)
+render(components/data/badge/dot.vue)
 :::

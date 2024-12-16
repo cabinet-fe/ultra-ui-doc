@@ -7,7 +7,7 @@
 这个样式应该是最好看的，比较推荐这样使用。
 
 ::: demo
-render(data/tag/basic.vue)
+render(components/data/tag/basic.vue)
 :::
 
 ## 暗色模式
@@ -15,7 +15,7 @@ render(data/tag/basic.vue)
 这个配合黑暗模式可能看起来更加协调一点。
 
 ::: demo
-render(data/tag/dark.vue)
+render(components/data/tag/dark.vue)
 :::
 
 ## 圆角标签
@@ -23,5 +23,5 @@ render(data/tag/dark.vue)
 ...
 
 ::: demo
-render(data/tag/round.vue)
+render(components/data/tag/round.vue)
 :::

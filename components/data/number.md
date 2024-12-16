@@ -7,7 +7,7 @@
 默认情况下，数字会自动进行千分位处理。
 
 ::: demo
-render(data/number/basic.vue)
+render(components/data/number/basic.vue)
 :::
 
 ## 动画
@@ -17,5 +17,5 @@ render(data/number/basic.vue)
 duration 属性可以设置动画的持续时间，默认值为 1000ms。
 
 ::: demo
-render(data/number/anime.vue)
+render(components/data/number/anime.vue)
 :::

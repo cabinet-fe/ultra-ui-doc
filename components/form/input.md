@@ -7,7 +7,7 @@
 它的用法就算没有文档，我相信你也会使用。
 
 ::: demo
-render(form/input/basic.vue)
+render(components/form/input/basic.vue)
 :::
 
 ## 前缀和后缀
@@ -15,7 +15,7 @@ render(form/input/basic.vue)
 前缀和后缀都有两种方式去插入，简单的字符串直接使用属性，复杂的使用插槽。
 
 ::: demo
-render(form/input/prefix-suffix.vue)
+render(components/form/input/prefix-suffix.vue)
 :::
 
 ## 模式
@@ -25,7 +25,7 @@ render(form/input/prefix-suffix.vue)
 其实很多时候你可以使用表单校验来限制用户输入，但是校验防呆不防傻。
 
 ::: demo
-render(form/input/pattern.vue)
+render(components/form/input/pattern.vue)
 :::
 
 ## 属性

@@ -14,30 +14,30 @@
 ## 基本用法
 
 :::demo
-render(form/radio/basic.vue)
+render(components/form/radio/basic.vue)
 :::
 
 ## 单选框组
 
 :::demo
-render(form/radio/group.vue)
+render(components/form/radio/group.vue)
 :::
 
 ## Block 布局
 
 :::demo
-render(form/radio/block.vue)
+render(components/form/radio/block.vue)
 :::
 
 ## 禁用某一项
 
 单选框禁用某项时，可使用 `disabled` 属性
 :::demo
-render(form/radio/disabled.vue)
+render(components/form/radio/disabled.vue)
 :::
 单选框组中禁用特定选项，请使用 `disabled-item` 属性。
 :::demo
-render(form/radio/disabled-item.vue)
+render(components/form/radio/disabled-item.vue)
 :::
 
 ## Radio 属性

@@ -5,19 +5,19 @@
 ## 基本用法
 
 ::: demo
-render(form/textarea/basic.vue)
+render(components/form/textarea/basic.vue)
 :::
 
 ## 自适应高度
 
 ::: demo
-render(form/textarea/auto-size.vue)
+render(components/form/textarea/auto-size.vue)
 :::
 
 ## 长度限制
 
 ::: demo
-render(form/textarea/maxlength.vue)
+render(components/form/textarea/maxlength.vue)
 :::
 
 ## 属性
@@ -40,10 +40,10 @@ render(form/textarea/maxlength.vue)
 
 ## 事件
 
-| 事件名              | 参数类型    | 描述                                                                                   |
-| ------------------- | ----------- | -------------------------------------------------------------------------------------- |
-| update:modelValue   | string      | 当 `modelValue` 值改变时触发，传递更新后的值                                           |
-| change              | string      | 当 `modelValue` 改变，并且文本框失去焦点或用户按下 Enter 键时触发，传递当前文本值       |
-| focus               | 无          | 文本框获取焦点时触发                                                                  |
-| blur                | 无          | 文本框失去焦点时触发                                                                  |
-| clear               | 无          | 当用户点击清空按钮时触发                                                               |
+| 事件名            | 参数类型 | 描述                                                                              |
+| ----------------- | -------- | --------------------------------------------------------------------------------- |
+| update:modelValue | string   | 当 `modelValue` 值改变时触发，传递更新后的值                                      |
+| change            | string   | 当 `modelValue` 改变，并且文本框失去焦点或用户按下 Enter 键时触发，传递当前文本值 |
+| focus             | 无       | 文本框获取焦点时触发                                                              |
+| blur              | 无       | 文本框失去焦点时触发                                                              |
+| clear             | 无       | 当用户点击清空按钮时触发                                                          |

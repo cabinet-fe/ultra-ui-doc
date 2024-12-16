@@ -13,5 +13,5 @@
 通过 `type` 属性控制日期的类型。
 
 ::: demo
-render(form/date-picker/basic.vue)
+render(components/form/date-picker/basic.vue)
 :::

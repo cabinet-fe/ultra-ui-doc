@@ -7,7 +7,7 @@
 它的很多属性继承自 `input` 组件，所以你可以参考 [属性段落](#属性) 和 [input 文档](./input.md) 来使用。
 
 ::: demo
-render(form/password-input/basic.vue)
+render(components/form/password-input/basic.vue)
 :::
 
 ## 属性

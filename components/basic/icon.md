@@ -7,7 +7,7 @@
 你可以用任何你想用的图标库，只要它是一个 Vue 组件。
 
 ::: demo
-render(basic/icon/basic.vue)
+render(components/basic/icon/basic.vue)
 :::
 
 ## 使用 icon-ultra 图标库

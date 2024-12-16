@@ -9,7 +9,7 @@
 当卡片像这样配点图片，展示内容时，它才会显得好看，如果全是文字，就会显得很丑陋。
 
 ::: demo
-render(data/card/basic.vue)
+render(components/data/card/basic.vue)
 :::
 
 ## 融入模式
@@ -17,5 +17,5 @@ render(data/card/basic.vue)
 有时候，卡片的阴影和边框会和周围的样式格格不入，这时候你可以尝试融入模式，其实就是去掉边框和阴影。
 
 ::: demo
-render(data/card/integrate.vue)
+render(components/data/card/integrate.vue)
 :::

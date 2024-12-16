@@ -7,5 +7,5 @@
 通过配置来演示一下。
 
 ::: demo
-render(data/tabs/basic.vue)
+render(components/data/tabs/basic.vue)
 :::

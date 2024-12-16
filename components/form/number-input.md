@@ -7,7 +7,7 @@
 它的很多属性继承自 `input` 组件，所以你可以参考 [属性段落](#属性) 和 [input 文档](./input.md) 来使用。
 
 ::: demo
-render(form/number-input/basic.vue)
+render(components/form/number-input/basic.vue)
 :::
 
 ## 货币模式
@@ -15,7 +15,7 @@ render(form/number-input/basic.vue)
 通过 `currency` 属性开启货币模式，开启后会自动将数字进行千分位分隔。
 
 ::: demo
-render(form/number-input/currency.vue)
+render(components/form/number-input/currency.vue)
 :::
 
 ## 最大值和最小值
@@ -23,7 +23,7 @@ render(form/number-input/currency.vue)
 通过 `max` 和 `min` 属性来指定最大值和最小值。
 
 ::: demo
-render(form/number-input/max-min.vue)
+render(components/form/number-input/max-min.vue)
 :::
 
 ## 步进
@@ -31,7 +31,7 @@ render(form/number-input/max-min.vue)
 通过 `step` 属性来指定步长，可以指定为数字，也可以指定为布尔值，为布尔值时步长默认为 1。
 
 ::: demo
-render(form/number-input/step.vue)
+render(components/form/number-input/step.vue)
 :::
 
 ## 精度
@@ -43,7 +43,7 @@ render(form/number-input/step.vue)
 - `maxPrecision` 表示最大精度，即小数点后最多显示 `maxPrecision` 位小数。
 
 ::: demo
-render(form/number-input/precision.vue)
+render(components/form/number-input/precision.vue)
 :::
 
 ## 属性

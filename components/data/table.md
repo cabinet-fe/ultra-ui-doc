@@ -7,7 +7,7 @@
 下面是一个简单的学生信息表格，展示了表格组件的基本使用方法。
 
 ::: demo
-render(data/table/basic.vue)
+render(components/data/table/basic.vue)
 :::
 
 ## 显示序号
@@ -15,7 +15,7 @@ render(data/table/basic.vue)
 序号会自动固定到左侧。
 
 ::: demo
-render(data/table/index.vue)
+render(components/data/table/index.vue)
 :::
 
 ## 固定表头 & 大数据渲染
@@ -27,7 +27,7 @@ render(data/table/index.vue)
 下面是 1w 条数据的渲染。
 
 ::: demo
-render(data/table/big-data.vue)
+render(components/data/table/big-data.vue)
 :::
 
 ::: tip 提示
@@ -39,7 +39,7 @@ render(data/table/big-data.vue)
 定义一个表头很简单，只需要将列定义为一个`森林结构`即可。
 
 ::: demo
-render(data/table/multi-level-header.vue)
+render(components/data/table/multi-level-header.vue)
 :::
 
 ## 插槽渲染
@@ -49,7 +49,7 @@ render(data/table/multi-level-header.vue)
 当然，你也可以在 `columns` 的定义中使用 `render` 方法来渲染单元格，使用 `nameRender` 来渲染表头，如果你习惯使用渲染函数的话。
 
 ::: demo
-render(data/table/slot.vue)
+render(components/data/table/slot.vue)
 :::
 
 ## 插槽穿透
@@ -61,7 +61,7 @@ render(data/table/slot.vue)
 记得指定 `row-key` 来标识唯一性。
 
 ::: demo
-render(data/table/select-and-check.vue)
+render(components/data/table/select-and-check.vue)
 :::
 
 ## 树形表格
@@ -71,7 +71,7 @@ render(data/table/select-and-check.vue)
 `tree`属性可以指定一个字符串，表示子级字段的 key 值。
 
 ::: demo
-render(data/table/tree.vue)
+render(components/data/table/tree.vue)
 :::
 
 ## Table 属性

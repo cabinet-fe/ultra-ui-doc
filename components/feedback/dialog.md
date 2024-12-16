@@ -5,5 +5,5 @@
 ## 基础用法
 
 ::: demo
-render(feedback/dialog/basic.vue)
+render(components/feedback/dialog/basic.vue)
 :::

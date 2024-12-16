@@ -13,7 +13,7 @@
 - 危险按钮：表示危险、删除类操作
 
 ::: demo
-render(basic/button/type.vue)
+render(components/basic/button/type.vue)
 :::
 
 ## 尺寸
@@ -22,7 +22,7 @@ render(basic/button/type.vue)
 根据使用场景选择合适的按钮尺寸。
 
 ::: demo
-render(basic/button/size.vue)
+render(components/basic/button/size.vue)
 :::
 
 ## 圆形按钮
@@ -30,7 +30,7 @@ render(basic/button/size.vue)
 圆形按钮常用于图标按钮的展示，适合放置在一些特定区域。
 
 ::: demo
-render(basic/button/circle.vue)
+render(components/basic/button/circle.vue)
 :::
 
 ## 禁用状态
@@ -38,7 +38,7 @@ render(basic/button/circle.vue)
 当操作不可用时，可以使用禁用状态的按钮来阻止用户进行操作。
 
 ::: demo
-render(basic/button/disabled.vue)
+render(components/basic/button/disabled.vue)
 :::
 
 ## 加载状态
@@ -46,7 +46,7 @@ render(basic/button/disabled.vue)
 用于操作需要一段时间才能完成的场景，可以使用加载状态来给予用户反馈。
 
 ::: demo
-render(basic/button/loading.vue)
+render(components/basic/button/loading.vue)
 :::
 
 ## 朴素按钮
@@ -54,7 +54,7 @@ render(basic/button/loading.vue)
 朴素按钮的样式更加简约，适用于次要操作或需要弱化展示的场景。
 
 ::: demo
-render(basic/button/plain.vue)
+render(components/basic/button/plain.vue)
 :::
 
 ## 文本按钮
@@ -62,7 +62,7 @@ render(basic/button/plain.vue)
 文本按钮没有边框和背景色，常用于表格内的编辑、删除等操作，或者一些不需要强调的操作。
 
 ::: demo
-render(basic/button/text.vue)
+render(components/basic/button/text.vue)
 :::
 
 ## 按钮组
@@ -70,5 +70,5 @@ render(basic/button/text.vue)
 按钮组可以将一组相关的按钮放在一起，用于展示一组相关的操作选项。
 
 ::: demo
-render(basic/button/group.vue)
+render(components/basic/button/group.vue)
 :::

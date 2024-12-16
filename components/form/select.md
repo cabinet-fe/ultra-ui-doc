@@ -7,7 +7,7 @@
 Select 组件提供了简单直观的选择界面。你可以通过 v-model 指令实现数据的双向绑定，通过 options 属性提供可选项列表。组件会根据选中值自动更新显示文本，同时支持默认值的设置。
 
 :::demo
-render(form/select/basic.vue)
+render(components/form/select/basic.vue)
 :::
 
 ## 开启过滤
@@ -15,7 +15,7 @@ render(form/select/basic.vue)
 在处理大量选项数据时，过滤功能能够帮助用户快速找到目标选项。启用 filterable 属性后，用户可以通过输入关键字对选项进行实时过滤，匹配规则默认采用选项标签的模糊匹配。如果选项数据是通过函数获取的，过滤会自动触发重新请求。
 
 :::demo
-render(form/select/filter.vue)
+render(components/form/select/filter.vue)
 :::
 
 ## 回显自动定位
@@ -23,7 +23,7 @@ render(form/select/filter.vue)
 为了优化大量选项时的用户体验，Select 组件实现了智能的滚动定位功能。当用户选中某个选项时，如果该选项不在可视区域内，组件会自动将其滚动到视图中心位置，确保用户可以立即看到选中的内容。这个功能在处理长列表时特别有用。
 
 :::demo
-render(form/select/view.vue)
+render(components/form/select/view.vue)
 :::
 
 ## 属性

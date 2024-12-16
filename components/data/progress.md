@@ -7,5 +7,5 @@
 这里的用法基本上满足很多情况了。
 
 ::: demo
-render(data/progress/basic.vue)
+render(components/data/progress/basic.vue)
 :::

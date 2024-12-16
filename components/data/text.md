@@ -7,5 +7,5 @@
 它的语义化意义大于高亮。
 
 ::: demo
-render(data/text/basic.vue)
+render(components/data/text/basic.vue)
 :::

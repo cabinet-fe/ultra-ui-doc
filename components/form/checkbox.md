@@ -9,5 +9,5 @@
 成组出现时，表示多选。
 
 ::: demo
-render(form/checkbox/basic.vue)
+render(components/form/checkbox/basic.vue)
 :::

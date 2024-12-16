@@ -5,19 +5,19 @@
 ## 基本用法
 
 :::demo
-render(form/tree-select/basic.vue)
+render(components/form/tree-select/basic.vue)
 :::
 
 ## 禁止某节点
 
 :::demo
-render(form/tree-select/disabled-node.vue)
+render(components/form/tree-select/disabled-node.vue)
 :::
 
 ## 自定义节点内容
 
 :::demo
-render(form/tree-select/custom.vue)
+render(components/form/tree-select/custom.vue)
 :::
 
 ## 属性

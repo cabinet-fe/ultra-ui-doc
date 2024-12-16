@@ -3,5 +3,5 @@
 ## 基础用法
 
 ::: demo
-render(feedback/contextmenu/basic.vue)
+render(components/feedback/contextmenu/basic.vue)
 :::

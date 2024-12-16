@@ -7,7 +7,7 @@
 最简单的演示。
 
 ::: demo
-render(data/tree/basic.vue)
+render(components/data/tree/basic.vue)
 :::
 
 ## 自定义节点
@@ -106,7 +106,7 @@ export interface TreeNode<DataItem extends Record<string, any>>
   valueKey: string
   /** 标签key */
   labelKey: string
-  /** 是否可见 */
+  /** 是否���见 */
   visible: boolean
   /** 是否展开 */
   expanded: boolean
@@ -130,5 +130,5 @@ export interface TreeNode<DataItem extends Record<string, any>>
 ```
 
 ::: demo
-render(data/tree/custom.vue)
+render(components/data/tree/custom.vue)
 :::

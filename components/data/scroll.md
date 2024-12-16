@@ -7,7 +7,7 @@
 跟在普通的容器里面一样，给容器设置高度即可。
 
 ::: demo
-render(data/scroll/basic.vue)
+render(components/data/scroll/basic.vue)
 :::
 
 ## 控制滚动
@@ -16,5 +16,5 @@ render(data/scroll/basic.vue)
 
 其实更好地做法是通过`el.scrollIntoView`来控制，但是没办法写都写好了，演示一下。
 ::: demo
-render(data/scroll/control.vue)
+render(components/data/scroll/control.vue)
 :::
