@@ -7,13 +7,13 @@
 基于 [Tip 弹出提示](/components/feedback/tip) 的提示框
 
 ::: demo
-render(feedback/pop-confirm/basic.vue)
+render(components/feedback/pop-confirm/basic.vue)
 :::
 
 ## 自定义文字、图标
 
 ::: demo
-render(feedback/pop-confirm/custom.vue)
+render(components/feedback/pop-confirm/custom.vue)
 :::
 
 ## 属性

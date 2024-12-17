@@ -9,9 +9,5 @@ Action 提供了一种便捷地操作交互体验。例如超出多少按钮隐�
 最大显示按钮数量默认是 3。你可以自行选择。
 
 :::demo
-components/basic/action/basic
-:::
-
-:::demo
-components/basic/action/group
+render(components/basic/action/basic.vue)
 :::

@@ -34,7 +34,7 @@ export interface BreakCols {
 默认情况下 `grid` 是一个 24 格栅格布局，当然你可以通过 `cols` 属性来重置它。
 
 ::: demo
-render(layout/grid/basic.vue)
+render(components/layout/grid/basic.vue)
 :::
 
 ## 响应式布局
@@ -42,5 +42,5 @@ render(layout/grid/basic.vue)
 通过 `cols` 属性来设置不同断点下的列数。
 
 ::: demo
-render(layout/grid/responsive.vue)
+render(components/layout/grid/responsive.vue)
 :::

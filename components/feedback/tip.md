@@ -4,15 +4,15 @@
 
 ## 基础用法
 
-跟所有的 UI 库一样,支持9种不同方向的展示
+跟所有的 UI 库一样,支持 9 种不同方向的展示
 ::: demo
-render(feedback/tip/basic.vue)
+render(components/feedback/tip/basic.vue)
 :::
 
 ## 虚拟触发
 
 ::: demo
-render(feedback/tip/virtual.vue)
+render(components/feedback/tip/virtual.vue)
 :::
 
 ## 属性

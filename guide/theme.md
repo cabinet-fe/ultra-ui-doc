@@ -170,7 +170,7 @@ type Theme = {
 以一个辅助色为例，更改主题色并重新加载，即可看到主题的更新。
 
 ::: demo
-render(theme.vue)
+render(components/theme.vue)
 :::
 
 你可以参照上面的样式，更改所有的主题色。ultra-ui 也提供了一个主题配置组件，可以可视化实时调整主题样式。

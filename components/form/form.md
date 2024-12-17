@@ -17,7 +17,7 @@
 :::
 
 :::demo
-render(components/form/basic.vue)
+render(components/form/form/basic.vue)
 :::
 
 ## 性能
@@ -27,7 +27,7 @@ render(components/form/basic.vue)
 打开调试面板，在`性能`一栏将 cpu 性能调到最低，然后提高渲染数量，并分别测试表单输入和数据绑定输入的渲染用时，你会发现性能的巨大差距。这得益于表单组件内部优化的更新机制。
 
 :::demo
-render(components/form/performance.vue)
+render(components/form/form/performance.vue)
 :::
 
 ## 校验
@@ -37,7 +37,7 @@ render(components/form/performance.vue)
 示例包含了必填校验、自定义校验规则等常见的校验场景。
 
 :::demo
-render(components/form/validate.vue)
+render(components/form/form/validate.vue)
 :::
 
 ## 嵌套数据
@@ -45,7 +45,7 @@ render(components/form/validate.vue)
 这个例子展示了如何处理嵌套的表单数据结构。表单组件支持任意深度的数据嵌套,你只需要使用点号来访问嵌套字段即可。
 
 :::demo
-render(components/form/nest.vue)
+render(components/form/form/nest.vue)
 :::
 
 ## 表单只读和禁用
@@ -53,7 +53,7 @@ render(components/form/nest.vue)
 这个例子展示了表单的只读和禁用状态。你可以通过设置`readonly`和`disabled`属性来控制整个表单的状态,也可以单独控制某个表单项的状态。
 
 :::demo
-render(components/form/readonly-and-disabled.vue)
+render(components/form/form/readonly-and-disabled.vue)
 :::
 
 ## 单模型跨表单
@@ -61,7 +61,7 @@ render(components/form/readonly-and-disabled.vue)
 这个例子展示了如何在多个表单之间共享同一个数据模型。你可以将同一个 FormModel 实例传递给多个表单组件,实现数据的统一管理和校验。
 
 :::demo
-render(components/form/multi.vue)
+render(components/form/form/multi.vue)
 :::
 
 ## 完全演示
@@ -76,7 +76,7 @@ render(components/form/multi.vue)
 - 自适应布局
 
 :::demo
-render(components/form/full.vue)
+render(components/form/form/full.vue)
 :::
 
 ## Form 属性

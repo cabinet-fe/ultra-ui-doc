@@ -19,36 +19,45 @@ const componentsTypeMap = {
   other: '其他组件'
 }
 
+async function getSidebarItem(dirPath: string, mdName: string) {
+  const lines = await readFileLine(
+    path.join(dirPath, mdName),
+    (i, str, content) => {
+      if (content.length) return false
+      str = str.trim()
+      if (str && str.startsWith('# ')) {
+        return true
+      }
+    }
+  )
+
+  const line = lines[0]!
+
+  return {
+    text: line.replace('#', '').trim(),
+    link: mdName.slice(0, -3)
+  }
+}
+
 const getComponentSidebar = async (type: keyof typeof componentsTypeMap) => {
   const typePath = path.resolve(__dirname, '../components', type)
   const mds = await fs.readdir(typePath)
-  const items = await Promise.all(
-    mds.map(async md => {
-      const lines = await readFileLine(
-        path.join(typePath, md),
-        (i, str, content) => {
-          if (content.length) return false
-          str = str.trim()
-          if (str && str.startsWith('# ')) {
-            return true
-          }
-        }
-      )
-
-      const line = lines[0]!
-
-      return {
-        text: line.replace('#', '').trim(),
-        link: md.slice(0, -3)
-      }
-    })
-  )
+  const items = await Promise.all(mds.map(md => getSidebarItem(typePath, md)))
 
   return {
     text: componentsTypeMap[type],
     base: `/components/${type}/`,
     items
   }
+}
+
+const getCompositionsSidebar = async () => {
+  const compositionsPath = path.resolve(__dirname, '../compositions')
+  const mds = await fs.readdir(compositionsPath)
+  const items = await Promise.all(
+    mds.map(md => getSidebarItem(compositionsPath, md))
+  )
+  return items
 }
 
 const basicSidebar = await getComponentSidebar('basic')
@@ -132,7 +141,8 @@ export default defineConfig({
           text: '指南',
 
           items: [
-            { text: '快速开始', link: '/guide/' },
+            { text: '概述', link: '/guide/' },
+            { text: '快速开始', link: '/guide/quickstart' },
             { text: '主题', link: '/guide/theme' }
           ]
         }
@@ -144,6 +154,13 @@ export default defineConfig({
         layoutSidebar,
         feedbackSidebar,
         otherSidebar
+      ],
+      '/compositions/': [
+        {
+          text: '组合式方法',
+          base: '/compositions/',
+          items: await getCompositionsSidebar()
+        }
       ]
     },
 
