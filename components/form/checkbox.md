@@ -11,3 +11,24 @@
 ::: demo
 render(components/form/checkbox/basic.vue)
 :::
+
+## 属性
+
+```ts
+/** 复选框组件属性 */
+interface CheckboxProps extends FormComponentProps {
+  /** 部分选中 */
+  indeterminate?: boolean
+  /** 是否选中  */
+  modelValue?: boolean
+}
+```
+
+## 事件
+
+```ts
+interface CheckboxEmits {
+  (name: 'update:modelValue', checked: boolean): void
+  (name: 'change', checked: boolean, e: MouseEvent): void
+}
+```

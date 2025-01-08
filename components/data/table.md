@@ -74,11 +74,108 @@ render(components/data/table/select-and-check.vue)
 render(components/data/table/tree.vue)
 :::
 
-## Table 属性
+## 属性
 
 ```ts
+/**
+ * 表格列节点
+ * TreeNode 类型是在cat-kit中定义。
+ */
+interface TableColumnNode extends TreeNode<TableColumn> {
+  /** 子列 */
+  children?: TableColumnNode[] | undefined
+  /** 父列 */
+  parent: TableColumnNode | null
+  /** 叶子节点数量 */
+  leafs?: number
+  key: string
+  name: string
+  align: TableColumnAlign
+  width: number | undefined
+  minWidth: number | undefined
+  fixed: 'left' | 'right' | undefined
+  isLastFixed: boolean
+  isFirstFixed: boolean
+  style: Record<string, number>
+}
+
+/**
+ * 合计上下文
+ */
+interface TableSummaryContext {
+  /** 总数 */
+  total: number
+  /** 所有行数据 */
+  rows: TableRow[]
+  /** 当前列 */
+  column: TableColumnNode
+}
+
+/** 表格行 */
+interface TableRow<DataItem extends Record<string, any> = Record<string, any>>
+  extends TreeNode<DataItem> {
+  /** 是否展开 */
+  expanded: boolean
+  /** 操作中 */
+  operating: boolean
+  /** 是否选中 */
+  checked: boolean
+  /** 是否为当前点击的行 */
+  isCurrent: boolean
+  /** id */
+  uid: number | string
+  indexes: number[]
+  /** 子row */
+  children?: TableRow<DataItem>[]
+  /** 父row */
+  parent: TableRow<DataItem> | null
+}
+
+/** 表格列 */
+interface TableColumn {
+  /** 列的唯一键 */
+  key: string
+  /** 列的名称 */
+  name: string
+  /** 表头渲染，优先级大于name属性 */
+  nameRender?: (ctx: {
+    column: TableColumnNode
+  }) =>
+    | VNode
+    | string
+    | null
+    | undefined
+    | (VNode | string | null | undefined)[]
+  /** 列最大宽度 */
+  width?: number
+  /** 列最小宽度 */
+  minWidth?: number
+  /**
+   * 列固定方式，为嵌套表头时此值无效
+   * @default 'left'
+   */
+  fixed?: 'left' | 'right'
+  /**
+   * 表头对齐方式, 如果没有指定，则默认使用align属性
+   * @default TableColumn['align']
+   */
+  headerAlign?: TableColumnAlign
+  /**
+   * 列对齐方式
+   * @default 'left'
+   */
+  align?: TableColumnAlign
+  /** 列渲染 */
+  render?: (scope: TableColumnRenderContext) => RenderReturn
+  /** 子列 */
+  children?: TableColumn[]
+  /** 表尾合计 */
+  summary?: boolean | ((ctx: TableSummaryContext) => RenderReturn)
+  [key: string]: any
+}
+
 /** 表格组件属性 */
-export interface TableProps<
+interface TableProps<
   DataItem extends Record<string, any> = Record<string, any>
 > {
   size?: ComponentSize
@@ -138,66 +235,43 @@ export interface TableProps<
 }
 ```
 
-## TableColumn 属性
+## 事件
 
 ```ts
-interface TableColumn {
-  /** 列的唯一键 */
-  key: string
-  /** 列的名称 */
-  name: string
-  /** 表头渲染，优先级大于name属性 */
-  nameRender?: (ctx: {
-    column: TableColumnNode
-  }) =>
-    | VNode
-    | string
-    | null
-    | undefined
-    | (VNode | string | null | undefined)[]
-  /** 列最大宽度 */
-  width?: number
-  /** 列最小宽度 */
-  minWidth?: number
-  /**
-   * 列固定方式，为嵌套表头时此值无效
-   * @default 'left'
-   */
-  fixed?: 'left' | 'right'
-  /**
-   * 列对齐方式
-   * @default 'left'
-   */
-  align?: TableColumnAlign
-  /** 列渲染 */
-  render?: (scope: TableColumnRenderContext) => RenderReturn
-  /** 子列 */
-  children?: TableColumn[]
-  /** 表尾合计 */
-  summary?: boolean | ((ctx: TableSummaryContext) => RenderReturn)
-  [key: string]: any
+/** 表格组件定义的事件 */
+interface TableEmits<
+  DataItem extends Record<string, any> = Record<string, any>
+> {
+  /** 多选 */
+  (e: 'update:checked', value: DataItem[]): void
+  /** 单选 */
+  (e: 'update:selected', value: DataItem | undefined): void
+  /** 数据更新 */
+  (e: 'update:data', value: DataItem[]): void
+  /** 行数据更新 */
+  (e: 'update:rows', rows: TableRow<DataItem>[]): void
+  /** 树形数据森林结构更新 */
+  (e: 'update:forest', rows?: Forest<TableRow<DataItem>>): void
+  /** 行点击事件 */
+  (e: 'row-click', row: TableRow<DataItem>): void
+  /** 当前行变更 */
+  (e: 'update:currentRow', row?: TableRow<DataItem>): void
 }
 ```
 
-## TableRow 属性
+## 暴露的属性和方法
 
 ```ts
-interface TableRow<DataItem extends Record<string, any> = Record<string, any>>
-  extends TreeNode<DataItem> {
-  /** 是否展开 */
-  expanded: boolean
-  /** 操作中 */
-  operating: boolean
-  /** 是否选中 */
-  checked: boolean
-  /** 是否为当前点击的行 */
-  isCurrent: boolean
-  /** id */
-  uid: number | string
-  indexes: number[]
-  /** 子row */
-  children?: TableRow<DataItem>[]
-  /** 父row */
-  parent: TableRow<DataItem> | null
+/** 表格组件暴露的属性和方法(组件内部使用) */
+interface _TableExposed {
+  el?: HTMLElement
+  /** 清除选中的项 */
+  clearChecked: () => void
+  /** 清除单选的选项 */
+  clearSelected: () => void
+  /** 通过数据获取表格行 */
+  getRowByData: (data: Record<string, any>) => TableRow | undefined
+  /** 获取合计行 */
+  getSummaryRow: () => Record<string, any>
 }
 ```

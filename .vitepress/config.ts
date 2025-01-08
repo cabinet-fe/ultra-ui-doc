@@ -130,7 +130,8 @@ export default defineConfig({
         // link: '/components/basic/button',
         items: [
           { text: '组件', link: '/components/basic/button' },
-          { text: '组合式方法', link: '/compositions/use-config' }
+          { text: '组合式方法', link: '/compositions/use-config' },
+          { text: '类型', link: '/types' }
         ]
       }
     ],
@@ -143,7 +144,8 @@ export default defineConfig({
           items: [
             { text: '概述', link: '/guide/' },
             { text: '快速开始', link: '/guide/quickstart' },
-            { text: '主题', link: '/guide/theme' }
+            { text: '主题', link: '/guide/theme' },
+            { text: '如何阅读本文档', link: '/guide/how' }
           ]
         }
       ],

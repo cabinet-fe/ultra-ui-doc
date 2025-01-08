@@ -72,3 +72,44 @@ render(components/basic/button/text.vue)
 ::: demo
 render(components/basic/button/group.vue)
 :::
+
+## 属性
+
+继承的属性可以在[类型](/types)中找到。
+
+```ts
+type ButtonType = ColorType
+
+/** 按钮属性类型 */
+interface ButtonProps extends ComponentProps {
+  /** 按钮类型 */
+  type?: ButtonType
+  /** 是否以文本形式展示 */
+  text?: boolean
+  /** 朴素模式 */
+  plain?: boolean
+  /** 加载中 */
+  loading?: boolean
+  /** 加载图标 */
+  loadingIcon?: Component
+  /** 圆形 */
+  circle?: boolean
+  /** 禁用 */
+  disabled?: boolean
+  /** 图标 */
+  icon?: Component
+  /** 图标大小, 单位px */
+  iconSize?: number
+  /** 图标位置 */
+  iconPosition?: 'left' | 'right'
+}
+```
+
+## 事件
+
+```ts
+interface ButtonEmits {
+  /** 点击事件 */
+  (name: 'click', e: MouseEvent): void
+}
+```

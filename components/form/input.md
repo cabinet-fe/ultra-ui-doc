@@ -32,7 +32,7 @@ render(components/form/input/pattern.vue)
 
 ```ts
 /** 输入框组件属性 */
-export interface InputProps extends FormComponentProps {
+interface InputProps extends FormComponentProps {
   /** modelValue */
   modelValue?: string
   /** 占位符 */

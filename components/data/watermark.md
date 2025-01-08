@@ -9,3 +9,21 @@
 ::: demo
 render(components/data/watermark/basic.vue)
 :::
+
+## 属性
+
+```ts
+/** watermark组件属性 */
+interface WatermarkProps {
+  /** 文字 */
+  text?: string
+  /** 图片 */
+  image?: string
+  /** 是否传送到body下 */
+  appendToBody?: boolean
+  /** 旋转弧度 */
+  route?: number
+  /** 字体大小 */
+  fontSize?: number
+}
+```

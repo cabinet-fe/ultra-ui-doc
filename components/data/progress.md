@@ -9,3 +9,19 @@
 ::: demo
 render(components/data/progress/basic.vue)
 :::
+
+## 属性
+
+```ts
+/** progress组件属性 */
+interface ProgressProps {
+  /** 类型 */
+  type: ColorType | ((percentage: number) => ColorType)
+  /** 圆形进度条尺寸 */
+  size?: number | string
+  /** 进度百分比 */
+  percentage?: number
+  /** 是否圆形进度条 */
+  circle?: boolean
+}
+```

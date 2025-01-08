@@ -13,3 +13,13 @@ render(components/basic/icon/basic.vue)
 ## 使用 icon-ultra 图标库
 
 查看 [icon-ultra](https://cabinet-fe.github.io/icon-ultra/) 图标库。
+
+## 属性
+
+```ts
+/** 图标组件属性 */
+interface IconProps {
+  /** 尺寸 */
+  size?: `${number}px` | number
+}
+```

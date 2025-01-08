@@ -18,16 +18,35 @@ render(components/feedback/pop-confirm/custom.vue)
 
 ## 属性
 
-| 属性名      | 类型      | 必填 | 描述             |
-| ----------- | --------- | ---- | ---------------- |
-| title       | string    | 否   | 弹出框的标题文字 |
-| icon        | Component | 否   | 显示的图标组件   |
-| confirmText | string    | 否   | 确认按钮的文字   |
-| cancelText  | string    | 否   | 取消按钮的文字   |
+```ts
+/** 气泡确认框组件属性 */
+interface PopConfirmProps
+  extends Pick<TipProps, 'alignment' | 'direction' | 'trigger' | 'contentTag'> {
+  /**文字 */
+  title?: string
+  /**icon 图标*/
+  icon?: Component
+  /**icon 颜色 */
+  iconColor?: string
+  /**
+   * 确认按钮文字
+   */
+  confirmText?: string
+  /**
+   * 取消按钮文字
+   */
+  cancelText?: string
+}
+```
 
 ## 事件
 
-| 事件名  | 参数 | 描述                   |
-| ------- | ---- | ---------------------- |
-| confirm | 无   | 用户点击确认按钮时触发 |
-| cancel  | 无   | 用户点击取消按钮时触发 |
+```ts
+/** 气泡确认框组件定义的事件 */
+interface PopConfirmEmits {
+  /** 确认事件 */
+  (event: 'confirm'): void
+  /** 取消事件 */
+  (event: 'cancel'): void
+}
+```

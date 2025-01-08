@@ -28,26 +28,73 @@ render(components/feedback/dropdown/width.vue)
 
 ## 属性
 
-| 属性名       | 类型                         | 必填 | 描述                               |
-| ------------ | ---------------------------- | ---- | ---------------------------------- |
-| trigger      | `hover`\| `click`\| `custom` | 否   | 触发方式，默认为`hover`            |
-| width        | string                       | 否   | 下拉框宽度，默认为跟随触发元素宽度 |
-| minWidth     | string                       | 否   | 下拉框的最小宽度                   |
-| contentTag   | string                       | 否   | 内容容器的标签                     |
-| contentClass | `string` \| `string[]`       | 否   | 内容容器的类名                     |
-| visible      | boolean                      | 否   | 是否显示下拉框                     |
-| disabled     | boolean                      | 否   | 是否禁用下拉框                     |
+```ts
+/** 下拉框组件属性 */
+interface DropdownProps {
+  /**
+   * 触发方式
+   * @default 'hover'
+   */
+  trigger?: 'hover' | 'click' | 'custom'
+  /**
+   * 宽度
+   * @default - 跟随触发宽度
+   */
+  width?: string
+  /**
+   * 最小宽度
+   */
+  minWidth?: string
+  /**
+   * 内容容器标签
+   */
+  contentTag?: string
+  /** 内容容器类 */
+  contentClass?: unknown
+  /** 内容容器样式 */
+  contentStyle?: CSSProperties | string
+  /** 显示下拉框 */
+  visible?: boolean
+  /** 禁用 */
+  disabled?: boolean
+  /**
+   * 点击外部是否隐藏
+   */
+  clickWhetherHide?: boolean
+}
+```
 
 ## 事件
 
-| 事件名         | 参数类型 | 描述                 |
-| -------------- | -------- | -------------------- |
-| update:visible | boolean  | 下拉框显示或隐藏事件 |
+```ts
+/** 下拉框组件定义的事件 */
+interface DropdownEmits {
+  /** 下拉框显示或隐藏事件 */
+  (e: 'update:visible', visible: boolean): void
+}
+```
 
 ## 方法
 
-| 方法名         | 参数类型                                                  | 描 述                                                                                          |
-| -------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| open           | `trigger?: { virtual?: HTMLElement, real?: HTMLElement }` | 打开下拉框，接受一个可选的触发元素对象,[进阶用法](/components/feedback/dropdown.html#进阶用法) |
-| close          | -                                                         | 关闭下拉框                                                                                     |
-| updateDropdown | -                                                         | 触发位置变化                                                                                   |
+```ts
+/** 下拉框组件暴露的属性和方法 */
+interface DropdownExposed {
+  /**
+   * 打开
+   * @param trigger 触发元素
+   */
+  open(trigger?: {
+    /** 虚拟触发元素 */
+    virtual?: HTMLElement
+    /**
+     * 真实触发元素
+     * @description 如果不指定则和虚拟触发元素一致
+     */
+    real?: HTMLElement
+  }): void
+  /** 关闭 */
+  close(): void
+  /** 更新下拉框位置 */
+  updateDropdown(): void
+}
+```

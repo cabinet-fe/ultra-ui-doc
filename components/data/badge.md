@@ -19,3 +19,23 @@ render(components/data/badge/basic.vue)
 ::: demo
 render(components/data/badge/dot.vue)
 :::
+
+## 属性
+
+```ts
+/** 徽章组件属性 */
+interface BadgeProps extends ComponentProps {
+  /** 显示值 */
+  value?: number
+  /** 类别 */
+  type?: ColorType
+  /** 自定义背景色 */
+  color?: string
+  /** 是否隐藏 Badge */
+  hidden?: boolean
+  /** 最大值 {{max}}+ */
+  max?: number
+  /** 是否显示小圆点 */
+  dot?: boolean
+}
+```

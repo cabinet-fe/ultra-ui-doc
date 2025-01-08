@@ -25,3 +25,28 @@ render(components/data/tag/dark.vue)
 ::: demo
 render(components/data/tag/round.vue)
 :::
+
+## 属性
+
+```ts
+/** 标签组件属性 */
+interface TagProps {
+  type?: ColorType
+  /** 是否可移除 */
+  closable?: boolean
+  /** 尺寸大小 */
+  size?: ComponentSize
+  /** 是否为圆角 */
+  round?: boolean
+  /** 深色 */
+  dark?: boolean
+}
+```
+
+## 事件
+
+```ts
+interface TagEmits {
+  (e: 'close'): void
+}
+```

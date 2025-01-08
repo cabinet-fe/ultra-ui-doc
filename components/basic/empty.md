@@ -9,3 +9,16 @@
 ::: demo
 render(components/basic/empty/basic.vue)
 :::
+
+## 属性
+
+```ts
+/** 空内容组件属性 */
+interface EmptyProps {
+  /** 图标大小, 默认48 */
+  size?: number
+
+  /** 空文本 */
+  text?: string
+}
+```

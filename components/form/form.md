@@ -79,26 +79,90 @@ render(components/form/form/multi.vue)
 render(components/form/form/full.vue)
 :::
 
-## Form 属性
+## 属性
 
-| 属性名     | 类型             | 必填 | 描述              |
-| ---------- | ---------------- | ---- | ----------------- |
-| model      | Model            | 是   | 表单数据模型      |
-| labelWidth | string \| number | 否   | 表单项 label 宽度 |
-| noTips     | boolean          | 否   | 是否不显示 tips   |
-| readonly   | boolean          | 否   | 是否只读          |
-| disabled   | boolean          | 否   | 是否禁用          |
-| size       | ComponentSize    | 否   | 组件尺寸          |
+```ts
+interface FormModelItem<Val = any> extends ValidateRule {
+  /** 模型值 */
+  value?: Val
+}
 
-## FormItem 属性
+type ModelData<Fields extends Record<string, FormModelItem>> = {
+  [key in keyof Fields]: Fields[key]['value'] extends () => infer T
+    ? T
+    : Fields[key]['value']
+}
 
-| 属性名     | 类型                                                                                           | 必填 | 描述                             |
-| ---------- | ---------------------------------------------------------------------------------------------- | ---- | -------------------------------- |
-| labelWidth | string \| number                                                                               | 否   | 标签宽度                         |
-| tips       | string                                                                                         | 否   | 在表单控件内时的提示             |
-| span       | number \| 'full' \| Record<BreakpointName, 'full' \| number> & \{ default: number \| 'full' \} | 否   | 所占列的大小, 详情查看 Grid 组件 |
-| label      | string                                                                                         | 否   | 表单标签文字                     |
-| field      | string                                                                                         | 否   | 表单项字段                       |
-| disabled   | boolean                                                                                        | 否   | 是否禁用                         |
-| readonly   | boolean                                                                                        | 否   | 是否只读                         |
-| size       | ComponentSize                                                                                  | 否   | 组件尺寸                         |
+type ModelRules<Fields extends Record<string, FormModelItem>> = {
+  [key in keyof Fields]: Omit<Fields[key], 'value'>
+}
+
+interface DataSettingConfig {
+  /**
+   * 是否校验
+   * @default true
+   */
+  validate?: boolean
+}
+
+type IFormModel<
+  Fields extends Record<string, FormModelItem> = Record<string, FormModelItem>
+> = {
+  /** 表单数据 */
+  readonly data: ModelData<Fields>
+  /** 字段校验规则 */
+  readonly fields: Fields
+  /**
+   * 字段键
+   */
+  readonly allKeys: string[]
+  /** 需要校验的key */
+  formKeys: Map<number, (keyof Fields)[]>
+  /** 错误 */
+  readonly errors: Map<keyof Fields, string[] | undefined>
+  /**
+   * 字段校验
+   * @param fields 字段， 如果不传入时将会使用keyFields来进行校验
+   */
+  validate: (fields?: keyof Fields | (keyof Fields)[]) => Promise<boolean>
+  /** 重置数据 */
+  resetData(fields?: keyof Fields | (keyof Fields)[]): void
+
+  /**
+   * 设置数据
+   * @param formData 表单值
+   * @param options 配置
+   */
+  setData(
+    formData: Partial<ModelData<Fields>>,
+    config?: DataSettingConfig
+  ): void
+  /** 清除校验 */
+  clearValidate(): void
+  /** 监听值变更 */
+  onChange(cb: (field: keyof Fields, val: any) => void): void
+  /** 关闭监听值变更 */
+  offChange(cb: (field: keyof Fields, val: any) => void): void
+}
+
+/** 表单组件属性 */
+interface FormProps<Model extends IFormModel = IFormModel>
+  extends ComponentProps {
+  /** 表单数据模型 */
+  model: Model
+  /** 表单项label宽度 */
+  labelWidth?: string | number
+  /** 是否不显示tips */
+  noTips?: boolean
+  /** 是否只读 */
+  readonly?: boolean
+  /** 是否禁用 */
+  disabled?: boolean
+}
+
+/** 组件项组件属性 */
+interface FormItemProps extends FormComponentProps {
+  /** 标签宽度 */
+  labelWidth?: string | number
+}
+```
