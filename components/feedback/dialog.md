@@ -8,10 +8,20 @@
 render(components/feedback/dialog/basic.vue)
 :::
 
+## 根据状态最大化
+
+弹框非最大化时，高度主要靠内容撑开，因此无法给内容元素设置 height: 100%, 因为容器本身的高度就是不固定的，但是最大化后又想他跟随的话，则需要用到默认
+插槽中的`maximized`参数，你可以根据`maximized`的值来动态设置内容元素的高度。
+
+::: demo
+render(components/feedback/dialog/maximized.vue)
+:::
+
 ## 属性
 
 ```ts
 /** 对话框组件属性 */
+
 interface DialogProps {
   /** 显示或隐藏 */
   modelValue?: boolean
