@@ -10,7 +10,9 @@
           background: '#ccc',
           height: maximized ? '100%' : '300px'
         }"
-      ></div>
+      >
+        content
+      </div>
     </template>
   </u-dialog>
 </template>
