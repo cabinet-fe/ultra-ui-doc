@@ -64,6 +64,20 @@ render(components/form/form/readonly-and-disabled.vue)
 render(components/form/form/multi.vue)
 :::
 
+## 显示表单的初始数据
+
+要显示表单的初始数据，你只需要在表单组件上添加`showInitialData`属性即可。
+
+::: tip 初始数据
+初始数据就是表单模型中每个字段的`value`字段对应的数据值。
+
+你也可以通过调用`model.setInitialData`方法来覆盖初始数据, 这在表单从服务器上拿数据作为初始数据时非常有用。
+:::
+
+:::demo
+render(components/form/form/initial-data.vue)
+:::
+
 ## 完全演示
 
 这个例子完整地展示了表单组件的各种特性,包括:
@@ -137,6 +151,8 @@ type IFormModel<
     formData: Partial<ModelData<Fields>>,
     config?: DataSettingConfig
   ): void
+  /** 设置初始数据 */
+  setInitialData(data: Partial<ModelData<Fields>>): void
   /** 清除校验 */
   clearValidate(): void
   /** 监听值变更 */
