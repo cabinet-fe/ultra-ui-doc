@@ -162,13 +162,13 @@ li {
   display: table;
 }
 
-ul[class^='u-'] {
-  margin: 0 !important;
-  padding: 0 !important;
-  list-style: none !important;
+.vp-doc .u-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-li[class^='u-'] {
-  margin: 0 !important;
-  list-style: none !important;
+.vp-doc .u-card li {
+  margin: 0;
+  list-style: none;
 }
