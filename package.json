@@ -7,12 +7,12 @@
     "cat-kit": "^3.7.12",
     "unocss": "^0.63.6",
     "vitepress": "^1.6.3",
-    "vitepress-demo-container": "^1.1.0"
+    "vitepress-demo-container": "^1.1.2"
   },
   "dependencies": {
-    "ultra-ui": "^0.3.27",
+    "ultra-ui": "^0.3.36",
     "vue": "^3.5.13",
-    "icon-ultra": "^3.0.17"
+    "icon-ultra": "^3.0.18"
   },
   "peerDependencies": {
     "typescript": "^5.6.3"
