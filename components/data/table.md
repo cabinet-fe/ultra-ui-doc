@@ -227,7 +227,16 @@ interface TableProps<
    * @description 用于标识行的唯一性，对于单选和多选来说是必须的
    */
   rowKey?: string
-
+  /**
+   * 是否开启斑马纹
+   * @default true
+   */
+  stripe?: boolean
+  /**
+   * 虚拟列表阈值
+   * @default 80
+   */
+  virtualThreshold?: number
   /**  默认展开全部 */
   defaultExpandAll?: boolean
   /** 文本溢出省略 */
