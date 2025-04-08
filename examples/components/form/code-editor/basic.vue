@@ -6,7 +6,8 @@
         :items="[
           { value: 'js', label: 'js' },
           { value: 'sql', label: 'sql' },
-          { value: 'java', label: 'java' }
+          { value: 'java', label: 'java' },
+          { value: 'json', label: 'json' }
         ]"
       />
 
@@ -36,5 +37,5 @@ const disabled = ref(false)
 
 const readonly = ref(false)
 
-const language = ref<'js' | 'sql' | 'java'>('js')
+const language = ref<'js' | 'sql' | 'java' | 'json'>('js')
 </script>

@@ -25,12 +25,14 @@ render(components/form/code-editor/basic.vue)
 ## 属性
 
 ```ts
+type CodeEditorLang = 'js' | 'java' | 'sql' | 'json'
+
 /** 代码编辑器组件属性 */
 interface CodeEditorProps extends FormComponentProps {
   /** modelValue */
   modelValue?: string
   /** 编程语言 */
-  language?: string
+  language?: CodeEditorLang
 }
 ```
 
