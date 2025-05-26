@@ -1,18 +1,33 @@
 <template>
   <div>
-    <u-button
-      @click="tipRef.trigger({ triggerDom: $refs.triggerDom, content: '7777' })"
-      >触发按钮</u-button
-    >
+    <u-button @click="pop(dom1!.el!)" ref="virtualTriggerDom2">
+      触发按钮1
+    </u-button>
 
-    <span ref="triggerDom">实际触发位置</span>
+    <span class="mx-4"> </span>
 
-    <u-tip ref="tipRef" trigger="click"> </u-tip>
+    <u-button @click="pop(dom2!.el!)" ref="virtualTriggerDom1">
+      触发按钮2
+    </u-button>
+
+    <u-tip v-model:visible="visible" trigger="click" :trigger-dom="triggerDom">
+      <template #content> 两级反转 </template>
+    </u-tip>
   </div>
 </template>
 
 <script setup lang="ts">
-import { shallowRef } from "vue"
+import { shallowRef, useTemplateRef } from 'vue'
 
-const tipRef = shallowRef()
+const visible = shallowRef(false)
+
+const dom1 = useTemplateRef('virtualTriggerDom1')
+const dom2 = useTemplateRef('virtualTriggerDom2')
+
+const triggerDom = shallowRef<HTMLElement>()
+
+function pop(dom: HTMLElement) {
+  visible.value = true
+  triggerDom.value = dom
+}
 </script>

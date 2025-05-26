@@ -11,6 +11,9 @@ render(components/feedback/tip/basic.vue)
 
 ## 虚拟触发
 
+虚拟触发的好处是可以节省渲染资源,
+比如在列表中, 想象一下，如果每个列表项都使用 tip, 那么就会造成很大的渲染压力, 这时候就可以使用虚拟触发来节省渲染资源。
+
 ::: demo
 render(components/feedback/tip/virtual.vue)
 :::
@@ -26,6 +29,8 @@ type TipAlign = 'start' | 'center' | 'end'
 interface TipProps {
   /**提示内容 */
   content?: string
+  /** 是否显示 */
+  visible: boolean
   /** 自定义tip样式 */
   style?: CSSProperties | string
   /** 自定义tip的class */
@@ -59,16 +64,7 @@ interface TipProps {
 ```ts
 /** tip提示组件组件定义的事件 */
 interface TipEmits {
-  /** 当提示框的内容更新时触发此事件 */
-  (e: 'update:modelValue', value: string): void
-}
-```
-
-## 暴露的属性和方法
-
-```ts
-interface TipExpose {
-  /** 关闭提示框 */
-  close(): void
+  /** 显示状态变化 */
+  (e: 'update:visible', value: boolean): void
 }
 ```
